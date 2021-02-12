@@ -1,7 +1,7 @@
 <template>
   <div class="container is-max-desktop ">
       <div class="mt-6 box pb-6">
-        <h1 class="title has-text-centered	">Política de Privacidad</h1>
+        <page-title>Política de Privacidad</page-title>
         <div class="mt-6">
           <p>Es requisito necesario para la adquisición de los productos que se ofrecen en este sitio, que lea y acepte los siguientes Términos y Condiciones que a continuación se redactan. El uso de nuestros servicios así como la compra de nuestros productos implicará que usted ha leído y aceptado los Términos y Condiciones de Uso en el presente documento. Todas los productos  que son ofrecidos por nuestro sitio web pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir un producto, será necesario el registro por parte del usuario, con ingreso de datos personales fidedignos y definición de una contraseña.</p>
 
@@ -15,7 +15,11 @@
   </div>
 </template>
 <script>
+import PageTitle from '@/components/page/PageTitle'
 export default {
-  name: 'ProtectionPolicy'
+  name: 'ProtectionPolicy',
+  components: {
+    PageTitle
+  }
 }
 </script>
