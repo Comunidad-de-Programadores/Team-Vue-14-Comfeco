@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
           <img
-           src="../assets/logo.png"
+           src="@/assets/logo.png"
            alt="Original logo of the organization comfeco"
            >    
       </a>
