@@ -4,7 +4,9 @@
         <div class="container">
             <div class="content flex has-text-centered">
                <div class="column ">
-                   <p class="has-text-weight-medium">COMFECO 2021</p>
+                 <router-link to="/" class="has-text-weight-medium">
+                   COMFECO 2021
+                 </router-link>
                </div>
                <div class="column ">
                    <p>Team Vue 14</p>
@@ -47,6 +49,9 @@ export default {
   left: 0;
   bottom: 0;
   background-color: $purple-hard-2;
+  a {
+    color: $yellow-hard !important;
+  }
   .flex {
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +68,7 @@ export default {
     }
     .column {
       flex-direction: column;
-       align-self: center;
+      align-self: center;
     }
   }
 }

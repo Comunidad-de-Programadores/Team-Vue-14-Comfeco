@@ -1,12 +1,12 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <router-link to="/" class="navbar-item">
           <img
            src="@/assets/logo.png"
            alt="Original logo of the organization comfeco"
-           >    
-      </a>
+           > 
+      </router-link>
     </div>
   </nav>
 </template>
