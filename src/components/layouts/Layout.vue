@@ -1,8 +1,6 @@
 <template>
     <div>
-      <header>
-        <top-bar />
-      </header>
+      <header-menu />
       <main class="layout_forms  container">
         <slot></slot>
       </main>
@@ -10,18 +8,18 @@
     </div>
 </template>
 <script>
-import TopBar from "@/components/TopBar/TopBar.vue";
-import Footer from "@/components/Footer/Footer.vue";
+import HeaderMenu from "@/components/HeaderMenu.vue";
+import Footer from "@/components/Footer.vue";
 export default {
   name: "Layout",
   components: {
-    TopBar,
+    HeaderMenu,
     Footer,
   }
 };
 </script>
 <style lang="scss" scoped>
-@import "./src/styles/main.scss";
+@import "@/assets/styles/_main.scss";
 .layout_forms {
   margin:100px auto;
   height: auto;
