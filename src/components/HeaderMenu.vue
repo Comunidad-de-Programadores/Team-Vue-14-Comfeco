@@ -12,13 +12,13 @@
 </template>
 <script>
 export default {
-  name: "TopBar"
+  name: "HeaderMenu"
 };
 </script>
 <style lang="scss" scoped>
-@import "./src/styles/main.scss";
+@import "@/assets/styles/_main.scss";
 .navbar {
   height: 60px;
-  background-color: $purple-light-2;
+  background-color: $purple-light-2!important;
 }
 </style>
