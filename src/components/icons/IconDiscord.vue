@@ -11,7 +11,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "./src/styles/main.scss";
+@import "@/assets/styles/_main.scss";
 .icon-social_network {
   width: 30px;
   fill: $yellow-hard;
