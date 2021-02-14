@@ -28,9 +28,6 @@
         <b-button type="is-primary" expanded>Confirmar</b-button>
       </div>
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      </p>
     </form>
   </div>
 </template>
