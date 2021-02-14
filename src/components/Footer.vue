@@ -27,9 +27,9 @@
     </footer>
 </template>
 <script>
-import IconDiscord from '@/components/icons/IconDiscord.vue'
-import IconFacebook from '@/components/icons/IconFacebook.vue'
-import IconYoutube from '@/components/icons/IconYoutube.vue'
+import IconDiscord from '@/components/Icon/IconDiscord.vue'
+import IconFacebook from '@/components/Icon/IconFacebook.vue'
+import IconYoutube from '@/components/Icon/IconYoutube.vue'
 export default {
   name: 'Footer',
   components: {

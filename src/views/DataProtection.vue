@@ -15,8 +15,8 @@
   </div>
 </template>
 <script>
-import PageTitle from '@/components/page/PageTitle'
-import PageContent from '@/components/page/PageContent'
+import PageTitle from '@/components/Page/PageTitle'
+import PageContent from '@/components/Page/PageContent'
 export default {
   name: 'DataProtection',
   components: {
