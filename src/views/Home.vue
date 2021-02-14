@@ -1,21 +1,17 @@
 <template>
   <div class="home">
-    <top-bar />
-   <Footer />
+   <layout />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Footer from "./Footer.vue";
-// import Footer from './Footer.vue'
-import TopBar from "./TopBar.vue";
+import Layout from "/src/components/layouts/Layout.vue";
 
 export default {
   name: "Home",
   components: {
-    Footer,
-    TopBar
+    Layout
   }
 };
 </script>
