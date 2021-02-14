@@ -2,7 +2,7 @@
   <div class="home">
     <layout>
       <container-small>
-        Page Login
+        <login />
       </container-small>
     </layout>
   </div>
@@ -12,11 +12,13 @@
 // @ is an alias to /src
 import Layout from "@/components/layouts/Layout";
 import ContainerSmall from "@/components/ContainerSmall"
+import Login from '@/components/Form/Login'
 export default {
   name: "Home",
   components: {
     Layout,
-    ContainerSmall
+    ContainerSmall,
+    Login
   }
 };
 </script>
