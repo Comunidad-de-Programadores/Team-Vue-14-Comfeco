@@ -44,10 +44,7 @@ export default {
 .custom-footer {
   height: auto;
   color: $yellow-hard;
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  margin-top:160px;
   background-color: $purple-hard-2;
   a {
     color: $yellow-hard !important;
