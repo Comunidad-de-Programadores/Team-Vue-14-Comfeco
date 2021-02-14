@@ -27,20 +27,20 @@
     </footer>
 </template>
 <script>
-import IconDiscord from "/src/components/icons/IconDiscord.vue";
-import IconFacebook from "/src/components/icons/IconFacebook.vue";
-import IconYoutube from "/src/components/icons/IconYoutube.vue";
+import IconDiscord from '@/components/icons/IconDiscord.vue'
+import IconFacebook from '@/components/icons/IconFacebook.vue'
+import IconYoutube from '@/components/icons/IconYoutube.vue'
 export default {
-  name: "Footer",
+  name: 'Footer',
   components: {
     IconDiscord,
     IconFacebook,
     IconYoutube
   }
-};
+}
 </script>
 <style lang="scss" scoped>
-@import "src/styles/main.scss";
+@import '@/assets/styles/_main.scss';
 .custom-footer {
   height: auto;
   color: $yellow-hard;
@@ -86,6 +86,7 @@ export default {
       flex-wrap: wrap;
       .p-12 {
         padding: 12px;
+        padding-bottom: 0px;
       }
       .ml-5 {
         margin: 0 5px;
