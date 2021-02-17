@@ -1,7 +1,14 @@
 <template>
 
   <section class="container is-fluid">
+    
     <container-form>
+      <div class="pb-5 pt-4 has-text-centered">
+          <a class="is-size-6 px-5" style="border-right: 1px solid;" href="/">
+            Iniciar sesión
+          </a>
+          <a class="is-size-6 px-5" href="/registro">Registrate</a>
+        </div>
       <form action="" class="">
         <b-field>
           <b-input v-model="user.email" placeholder="Correo" type="email" required>
@@ -36,7 +43,7 @@ export default {
   components: {
     ContainerForm
   },
-  data () {
+  data() {
     return {
       user: {
         email: '',
@@ -45,7 +52,7 @@ export default {
     }
   },
   methods: {
-    submit () {
+    submit() {
       console.log(this.user)
     }
   }
