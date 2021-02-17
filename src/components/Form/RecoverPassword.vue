@@ -36,7 +36,6 @@
               <b-button native-type="submit" type="is-dark" :loading="loading" >
                 Enviar enlace 
               </b-button>
-              <router-link to="/"><b>Iniciar sesión</b></router-link>
             </div>
           </form>
         </div>
