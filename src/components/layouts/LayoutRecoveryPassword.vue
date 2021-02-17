@@ -1,6 +1,6 @@
 <template>
     <div>
-      <header-menu />
+      <header-recovery />
       <main class="layout_forms  container">
         <slot></slot>
       </main>
@@ -8,12 +8,12 @@
     </div>
 </template>
 <script>
-import HeaderMenu from "@/components/HeaderMenu";
+import HeaderRecovery from "@/components/HeaderRecovery";
 import Footer from "@/components/Footer";
 export default {
-  name: "Layout",
+  name: "LayoutRecovery",
   components: {
-    HeaderMenu,
+    HeaderRecovery,
     Footer,
   }
 };
