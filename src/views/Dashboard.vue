@@ -7,13 +7,13 @@
 </template>
 <script>
 import Layout from "@/components/layouts/Layout";
-import WelcomeView from "./Welcome";
+import WelcomeView from "@/components/Welcome";
 
 export default {
-    name:"Dashboard",
-    components:{
-        Layout,
-        WelcomeView
-        }
+  name:"Dashboard",
+  components:{
+    Layout,
+    WelcomeView
+  }
 }
 </script>
