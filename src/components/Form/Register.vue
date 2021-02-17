@@ -6,10 +6,10 @@
     <container-form>
       <form class="">
         <div class="pb-5 pt-4 has-text-centered">
-          <a class="is-size-6 px-5" style="border-right: 1px solid;" href="#">
+          <a class="is-size-6 px-5" style="border-right: 1px solid;" href="/">
             Iniciar sesión
           </a>
-          <a class="is-size-6 px-5" href="#">Registrate</a>
+          <a class="is-size-6 px-5" href="/registro">Registrate</a>
         </div>
 
         <b-field>
