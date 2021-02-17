@@ -10,6 +10,12 @@ class AuthService extends ApiService{
       email: email
     })
   }
+  login ({ email, password }) {
+    return this.http.post('api/token/', {
+      email: email,
+      password: password
+    })
+  }
 }
 
 const instance = new AuthService()
