@@ -1,7 +1,6 @@
 <template>
   <div
     class="container my-4"
-    style="width: 90%; max-width: 500px"
   >
     <container-form>
       <form @submit.prevent="onSubmit">
@@ -101,11 +100,11 @@
 
         <div class="mb-3">
           <b-field
-            :type="$v.form.repeatPassword.$error ? 'is-danger' : ''"
+            :type="$v.form.confirm_password.$error ? 'is-danger' : ''"
             class="mb-0"
           >
             <b-input
-              v-model.trim="$v.form.repeatPassword.$model"
+              v-model.trim="$v.form.confirm_password.$model"
               placeholder="Confirmar contraseña"
               type="password"
             >
@@ -113,14 +112,14 @@
           </b-field>
           <div>
             <span
-              v-if="!$v.form.repeatPassword.required && $v.form.repeatPassword.$error"
+              v-if="!$v.form.confirm_password.required && $v.form.confirm_password.$error"
               class="is-size-7"
               style="color: red"
             >
               El confirmar contraseña es requerida.
             </span>
             <span
-              v-if="!$v.form.repeatPassword.sameAsPassword"
+              v-if="!$v.form.confirm_password.sameAsPassword"
               class="is-size-7 is-block"
               style="color: red"
             >
@@ -156,7 +155,7 @@ export default {
         username: '',
         email: '',
         password: null,
-        repeatPassword: null
+        confirm_password: null
       }
     }
   },
@@ -173,9 +172,9 @@ export default {
       },
       password: {
         required,
-        minLength: minLength(5)
+        minLength: minLength(8)
       },
-      repeatPassword: {
+      confirm_password: {
         required,
         sameAsPassword: sameAs('password')
       }
