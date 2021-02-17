@@ -31,7 +31,17 @@
         <router-link class="level-left" to="/recuperar-password">
           <b>¿Olvidaste tu contraseña?</b></router-link
         >
-        <br />
+        <ul class="mt-2 mb-2">
+          <li class="mb-1">
+            <a href="/terminos-y-condiciones" class="helper ">Términos y Condiciones</a>
+          </li>
+          <li class="mb-1">
+            <a href="/proteccion-de-datos" class="helper">Protección de datos</a>
+          </li>
+          <li class="mb-1">
+            <a href="/politica-de-privacidad" class="helper ">Politica de privacidad</a>
+          </li>
+        </ul>
         <button
           @click.prevent="submit"
           class="button is-dark is-medium is-fullwidth"

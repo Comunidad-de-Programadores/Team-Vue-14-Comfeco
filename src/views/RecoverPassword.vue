@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <layout>
+    <layout-recovery>
       <recover-password />
-    </layout>
+    </layout-recovery>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Layout from "@/components/layouts/Layout";
+import LayoutRecovery from "@/components/layouts/LayoutRecoveryPassword";
 import RecoverPassword from '@/components/Form/RecoverPassword'
 export default {
   name: "Home",
   components: {
-    Layout,
+    LayoutRecovery,
     RecoverPassword
   }
 };
