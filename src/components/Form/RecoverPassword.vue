@@ -9,9 +9,14 @@
       <div>
         <form action="" >
           <b-field>
-            <b-input v-model="form.email" placeholder="Correo electrónico" type="email" required >
+            <b-input v-model="form.email" placeholder="Correo electrónico" type="email"  >
             </b-input>
           </b-field>
+          <div v-if="messageError"  class="mb-2">
+             <p  v-for="(err, index) in messageError" class="help is-danger" :key="'err-' + index">
+              {{err}}
+            </p>
+          </div>
           <div class="is-flex is-justify-content-space-between">
             <button class="button is-dark" @click.prevent="submit()">
               Enviar enlace 
@@ -35,7 +40,8 @@ export default {
     return {
       form: {
         email: null
-      }
+      },
+      messageError: ''
     }
   },
   methods: {
@@ -45,6 +51,7 @@ export default {
         const response = await AuthService.recoveryPassword(this.form)
         console.log(response, 'reponse')
       } catch (error) {
+        this.messageError = error.response.data.email
         console.log(error)
       }
     }
