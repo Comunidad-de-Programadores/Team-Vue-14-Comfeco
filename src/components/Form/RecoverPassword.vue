@@ -7,19 +7,14 @@
         reasignes tu contraseña.
       </p>
       <div>
-        <form action="">
+        <form action="" >
           <b-field>
-            <b-input
-              v-model="form.email"
-              placeholder="Correo electrónico"
-              type="email"
-              required
-            >
+            <b-input v-model="form.email" placeholder="Correo electrónico" type="email" required >
             </b-input>
           </b-field>
           <div class="is-flex is-justify-content-space-between">
-            <button type="submit" class="button is-dark" @click="submit()">
-              Enviar enlace
+            <button class="button is-dark" @click.prevent="submit()">
+              Enviar enlace 
             </button>
             <router-link to="/"><b>Iniciar sesión</b></router-link>
           </div>
@@ -30,6 +25,7 @@
 </template>
 <script>
 import ContainerForm from '@/components/Form/ContainerForm'
+import AuthService from '@/services/auth.services'
 export default {
   name: 'PasswordRecovery',
   components: {
@@ -43,8 +39,14 @@ export default {
     }
   },
   methods: {
-    submit () {
-      console.log(this.form)
+    async submit () {
+      try {
+        console.log(AuthService, 'AuthService')
+        const response = await AuthService.recoveryPassword(this.form)
+        console.log(response, 'reponse')
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
