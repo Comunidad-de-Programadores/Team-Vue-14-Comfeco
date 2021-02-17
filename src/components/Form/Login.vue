@@ -5,7 +5,7 @@
         <a class="is-size-6 px-5" style="border-right: 1px solid;" href="/">
           Iniciar sesión
         </a>
-        <a class="is-size-6 px-5" href="/registro">Registrate</a>
+        <router-link class="is-size-6 px-5" to="/registro">Registrate</router-link>
       </div>
       <form action="" class="">
         <b-field>
@@ -28,7 +28,7 @@
           </b-input>
         </b-field>
         <br />
-        <router-link class="level-left" to="/recuperar-cuenta">
+        <router-link class="level-left" to="/recuperar-password">
           <b>¿Olvidaste tu contraseña?</b></router-link
         >
         <br />

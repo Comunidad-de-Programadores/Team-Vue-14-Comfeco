@@ -4,6 +4,10 @@ import router from './router'
 import store from './store'
 import Buefy from 'buefy'
 import '@/assets/styles/_main.scss'
+import Vuelidate from 'vuelidate'
+
+
+Vue.use(Vuelidate)
 
 
 Vue.use(Buefy)

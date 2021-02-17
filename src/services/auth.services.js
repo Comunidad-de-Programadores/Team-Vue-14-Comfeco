@@ -5,7 +5,6 @@ class AuthService extends ApiService{
     super()
   }
   recoveryPassword ({ email }) {
-    console.log(this.http, 'this')
     return this.http.post('api/password_reset/', {
       email: email
     })
@@ -13,6 +12,17 @@ class AuthService extends ApiService{
   login ({ email, password }) {
     return this.http.post('api/token/', {
       email: email,
+      password: password
+    })
+  }
+  validateTokenForPassword (token) {
+    return this.http.post('api/password_reset/validate_token/', {
+      token: token
+    })
+  }
+  changePassword ({password, token}) {
+    return this.http.post('api/password_reset/confirm/', {
+      token: token,
       password: password
     })
   }
