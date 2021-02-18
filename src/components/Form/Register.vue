@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="container my-4"
-  >
+  <div class="container my-4">
     <container-form>
       <form @submit.prevent="onSubmit">
         <div class="pb-5 pt-4 has-text-centered">
@@ -33,23 +31,22 @@
               class="is-size-7 is-block"
               style="color: red"
             >
-              El nombre de usuario debe tener al menos {{$v.form.username.$params.minLength.min}} letras.
+              El nombre de usuario debe tener al menos
+              {{ $v.form.username.$params.minLength.min }} letras.
             </span>
             <span
               v-if="!$v.form.username.maxLength && $v.form.username.$error"
               class="is-size-7"
               style="color: red"
             >
-              El nombre de usuario no debe tener más de {{$v.form.username.$params.maxLength.max}} letras.
+              El nombre de usuario no debe tener más de
+              {{ $v.form.username.$params.maxLength.max }} letras.
             </span>
-          </div>      
+          </div>
         </div>
 
         <div class="mb-3">
-          <b-field
-            :type="$v.form.email.$error ? 'is-danger' : ''"
-            class="mb-0"
-          >
+          <b-field :type="$v.form.email.$error ? 'is-danger' : ''" class="mb-0">
             <b-input
               v-model.trim="$v.form.email.$model"
               placeholder="Correo"
@@ -65,8 +62,8 @@
             >
               El correo es requerido.
             </span>
-          </div>   
-        </div> 
+          </div>
+        </div>
 
         <div class="mb-3">
           <b-field
@@ -80,7 +77,7 @@
             >
             </b-input>
           </b-field>
-           <div>
+          <div>
             <span
               v-if="!$v.form.password.required && $v.form.password.$error"
               class="is-size-7 is-block"
@@ -90,12 +87,13 @@
             </span>
           </div>
           <span
-              v-if="!$v.form.password.minLength && $v.form.password.$error"
-              class="is-size-7"
-              style="color: red"
-            >
-              La contraseña debe tener al menos {{$v.form.password.$params.minLength.min}} letras.
-            </span>
+            v-if="!$v.form.password.minLength && $v.form.password.$error"
+            class="is-size-7"
+            style="color: red"
+          >
+            La contraseña debe tener al menos
+            {{ $v.form.password.$params.minLength.min }} letras.
+          </span>
         </div>
 
         <div class="mb-3">
@@ -112,7 +110,10 @@
           </b-field>
           <div>
             <span
-              v-if="!$v.form.confirm_password.required && $v.form.confirm_password.$error"
+              v-if="
+                !$v.form.confirm_password.required &&
+                  $v.form.confirm_password.$error
+              "
               class="is-size-7"
               style="color: red"
             >
@@ -136,20 +137,38 @@
         <button type="submit" class="button is-dark is-medium is-fullwidth">
           Confirmar
         </button>
-
       </form>
+      <p class="my-5">
+        Al registrarte, estas aceptando los
+        <router-link to="/terminos-y-condiciones"
+          >Términos y condiciones</router-link
+        >, y la
+        <router-link to="/politica-de-privacidad"
+          >Política de privacidad</router-link
+        >
+        y
+        <router-link to="/proteccion-de-datos">protección de datos</router-link>
+        de COMFECO
+      </p>
     </container-form>
   </div>
 </template>
 <script>
-import { required, minLength, maxLength, email, sameAs } from 'vuelidate/lib/validators'
+import {
+  required,
+  minLength,
+  maxLength,
+  email,
+  sameAs
+} from 'vuelidate/lib/validators'
 import ContainerForm from '@/components/Form/ContainerForm'
+import AuthService from '@/services/auth.services'
 export default {
   name: 'Register',
-  components:{
+  components: {
     ContainerForm
   },
-  data() {
+  data () {
     return {
       form: {
         username: '',
@@ -181,8 +200,35 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
+    onSubmit () {
       this.$v.$touch()
+      if (!this.$v.$invalid) {
+        this.register()
+      }
+    },
+    async register () {
+      try {
+        console.log(AuthService, 'AuthService')
+        const response = await AuthService.register(this.form)
+        console.log(response, 'reponse')
+        this.$buefy.snackbar.open({
+          duration: 5000,
+          message: 'Usuario creado correctamente',
+          type: 'is-success',
+          position: 'is-top',
+          actionText: 'Ok'
+        })
+        this.$router.push('/')
+      } catch (error) {
+        console.log(error)
+        this.$buefy.snackbar.open({
+          duration: 5000,
+          message: error,
+          type: 'is-danger',
+          position: 'is-bottom',
+          actionText: 'Ok'
+        })
+      }
     }
   }
 }
