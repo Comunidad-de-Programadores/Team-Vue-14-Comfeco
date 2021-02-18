@@ -1,9 +1,9 @@
 <template>
-    <div class="is-flex">
-        <div class="is-flex-direction-column">
-            <p class="is-size-1-desktop is-size-1-mobile has-text-centered ml-5">Bienvenidos!</p>
+    <div class="flex">
+        <div class="column">
+            <p class="is-size-1-desktop is-size-1-mobile is-size-1-touch has-text-centered ml-5">Bienvenidos!</p>
         </div>
-        <div class="is-flex-direction-column">
+        <div class="section_img column">
            <b-image
         class="container "
         :src=imgUrl
@@ -15,8 +15,8 @@
 <script>
 export default {
   name: 'WelcomeView',
-  data(){
-    return{
+  data() {
+    return {
       imgUrl: require('@/assets/woman.png')
     }
   }
@@ -26,21 +26,29 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_main.scss';
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-p{
-    font-family: 'Lobster', cursive;
-    color:$purple-hard;
-  }
+p {
+  font-family: 'Lobster', cursive;
+  color: $purple-hard;
+}
 .flex {
   display: flex;
-  
+  flex-wrap: wrap;
 }
-.img-welcome {
-  height: 300px;
+.column {
+  flex-direction: column;
+  align-self: center;
+}
+.section_img {
+  width: 300px;
+  margin: 0;
 }
 @media only screen and (max-width: 600px) {
   .flex {
     display: flex;
-    flex-direction: row;
+    .column {
+      flex-direction: row;
+      margin: 20px;
+    }
   }
 }
 </style>
