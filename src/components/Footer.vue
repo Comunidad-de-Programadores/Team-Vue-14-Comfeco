@@ -4,9 +4,9 @@
         <div class="container">
             <div class="content flex has-text-centered">
                <div class="column ">
-                 <router-link to="/" class="has-text-weight-medium">
+                 <a target="_blank" href="https://www.comfeco.com/" class="has-text-weight-medium">
                    COMFECO 2021
-                 </router-link>
+                 </a>
                </div>
                <div class="column ">
                    <p>Team Vue 14</p>
