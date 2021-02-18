@@ -29,6 +29,10 @@ export default {
   right: 0;
   top: 2px;
 }
+.button.is-light {
+  background-color: $purple-hard-2 !important;
+  color: $yellow-light;
+}
 .navbar {
   height: 60px;
   background-color: $purple-light-2 !important;
