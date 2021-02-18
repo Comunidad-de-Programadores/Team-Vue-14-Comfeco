@@ -202,7 +202,9 @@ export default {
   methods: {
     onSubmit () {
       this.$v.$touch()
-      this.register()
+      if (!this.$v.$invalid) {
+        this.register()
+      }
     },
     async register () {
       try {
@@ -216,6 +218,7 @@ export default {
           position: 'is-top',
           actionText: 'Ok'
         })
+        this.$router.push('/')
       } catch (error) {
         console.log(error)
         this.$buefy.snackbar.open({
