@@ -1,19 +1,26 @@
 <template>
     <div>
       <layout>
-       <welcome-view />
+        <div class="container-dashboard-center">
+          <community />
+       </div>
       </layout>
     </div>
 </template>
 <script>
 import Layout from "@/components/layouts/Layout";
-import WelcomeView from "@/components/Welcome";
-
+import Community from '@/components/Community/index'
 export default {
   name:"Dashboard",
   components:{
     Layout,
-    WelcomeView
+    Community
   }
 }
 </script>
+<style lang="scss">
+  .container-dashboard-center{
+    max-width: 900px;
+    margin: auto;
+  }
+</style>
