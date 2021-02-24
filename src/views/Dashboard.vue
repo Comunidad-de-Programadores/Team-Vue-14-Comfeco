@@ -22,5 +22,6 @@ export default {
   .container-dashboard-center{
     max-width: 900px;
     margin: auto;
+    padding: 0 10px;
   }
 </style>
