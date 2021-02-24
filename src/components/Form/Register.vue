@@ -208,9 +208,7 @@ export default {
     },
     async register () {
       try {
-        console.log(AuthService, 'AuthService')
-        const response = await AuthService.register(this.form)
-        console.log(response, 'reponse')
+        await AuthService.register(this.form)
         this.$buefy.snackbar.open({
           duration: 5000,
           message: 'Usuario creado correctamente',
@@ -220,10 +218,9 @@ export default {
         })
         this.$router.push('/')
       } catch (error) {
-        console.log(error)
         this.$buefy.snackbar.open({
           duration: 5000,
-          message: error,
+          message: error.response.data.password,
           type: 'is-danger',
           position: 'is-bottom',
           actionText: 'Ok'
