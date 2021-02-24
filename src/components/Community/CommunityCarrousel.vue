@@ -2,7 +2,7 @@
   <div>
       <h3 class="is-size-3 has-text-weight-semibold	has-text-centered mt-6">Ellos ya creen en esta iniciativa</h3>
       <div class="mt-4">
-        <Slider v-bind="tinySliderOptions" ref="slider" :auto-init="false" >
+        <Slider v-bind="tinySliderOptions" ref="slider" >
           <div v-for="(community, index) in communities" :key="index">
             <p>{{community.name}}</p>
           </div>
