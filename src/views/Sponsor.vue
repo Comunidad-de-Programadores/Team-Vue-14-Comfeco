@@ -3,20 +3,15 @@
       <div class="mt-6 sponsors-container" >
         <h4 class="is-size-3 has-text-weight-semibold	has-text-left mt-6">Sponsors</h4>
         
-       
+       <button id="prev"></button>
+       <button id="next"></button>
         <Slider v-bind="tinySliderOptions" ref="slider" >
-          <div>
-             <button id="prev"></button>
-          </div>
-         
           <div v-for="(img, i) in url" :key="i" class="">
             <div class="sponsors" >
               <img :src="img.src" alt="" class="sponsors-image">
             </div>
           </div>
-          <div>
-<button id="next"></button>
-          </div>
+  
           
         </Slider>
          
