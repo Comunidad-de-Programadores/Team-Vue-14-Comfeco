@@ -1,20 +1,16 @@
 <template>
   <div>
-      <div class="mt-6 sponsors-container" >
+      <div class="mt-6 sponsors-container container" >
         <h4 class="is-size-3 has-text-weight-semibold	has-text-left mt-6">Sponsors</h4>
-        
-       <button id="prev"></button>
-       <button id="next"></button>
+       <button id="prev" class="sponsors-slider-prev"></button>
         <Slider v-bind="tinySliderOptions" ref="slider" >
           <div v-for="(img, i) in url" :key="i" class="">
             <div class="sponsors" >
               <img :src="img.src" alt="" class="sponsors-image">
             </div>
           </div>
-  
-          
         </Slider>
-         
+        <button id="next" class="sponsors-slider-next"></button>
       </div>
   </div>
 </template>
@@ -74,7 +70,24 @@ export default {
     display: flex;
     align-items: center;
   }
+  &-slider-prev{
+    position: absolute;
+    left: 20px;
+    top: calc(50% - 15px);
+  }
+  &-slider-next{
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 15px);
+  }
   &-container {
+    .tns-outer{
+      position: relative;
+      padding: 0 45px;
+    }
+    .tns-outer{
+      position: relative;
+    }
     .tns-nav {
       text-align: center;
       margin-top: 10px;
