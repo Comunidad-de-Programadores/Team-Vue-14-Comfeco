@@ -70,22 +70,24 @@ export default {
     display: flex;
     align-items: center;
   }
-  &-slider-prev{
+  &-slider-prev {
+    cursor: pointer;
     position: absolute;
     left: 20px;
     top: calc(50% - 15px);
   }
-  &-slider-next{
+  &-slider-next {
+    cursor: pointer;
     position: absolute;
     right: 20px;
     top: calc(50% - 15px);
   }
   &-container {
-    .tns-outer{
+    .tns-outer {
       position: relative;
       padding: 0 45px;
     }
-    .tns-outer{
+    .tns-outer {
       position: relative;
     }
     .tns-nav {
@@ -108,10 +110,11 @@ export default {
       outline: none;
       width: 40px;
       height: 40px;
+      z-index: 2;
       background-color: transparent;
       border: none;
-      border-top: 3px solid #555;
-      border-left: 3px solid #555;
+      border-top: 5px solid #b5b5b5;
+      border-left: 5px solid #b5b5b5;
       transform: rotate(-45deg) skew(15deg, 15deg);
     }
     #next {
@@ -120,8 +123,8 @@ export default {
       height: 40px;
       background-color: transparent;
       border: none;
-      border-bottom: 3px solid #555;
-      border-right: 3px solid #555;
+      border-bottom: 5px solid #b5b5b5;
+      border-right: 5px solid #b5b5b5;
       transform: rotate(-45deg) skew(15deg, 15deg);
     }
   }

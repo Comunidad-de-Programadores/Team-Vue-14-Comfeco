@@ -3,18 +3,21 @@
       <layout>
         <div class="container-dashboard-center">
           <community />
+          <sponsor-views/>
        </div>
       </layout>
     </div>
 </template>
 <script>
 import Layout from "@/components/layouts/Layout";
-import Community from '@/components/Community/index'
+import Community from '@/components/Community/index';
+import SponsorViews from '@/views/Sponsor.vue'
 export default {
   name:"Dashboard",
   components:{
     Layout,
-    Community
+    Community,
+    SponsorViews
   }
 }
 </script>
