@@ -1,25 +1,23 @@
 <template>
-    <div class="flex">
-        <div class="column">
-            <p class="is-size-1-desktop is-size-1-mobile is-size-1-touch has-text-centered ml-5">Bienvenidos!</p>
-        </div>
-        <div class="section_img column">
-           <b-image
-        class="container "
-        :src=imgUrl
-        >
-        </b-image>
-        </div>
+  <div class="is-flex">
+    <div class="is-flex-direction-column">
+      <p class="is-size-1-desktop is-size-1-mobile has-text-centered ml-5">
+        Bienvenidos!
+      </p>
     </div>
+    <div class="is-flex-direction-column">
+      <b-image class="container" :src="imgUrl"> </b-image>
+    </div>
+  </div>
 </template>
 <script>
 export default {
   name: 'WelcomeView',
   data() {
     return {
-      imgUrl: require('@/assets/woman.png')
+      imgUrl: require('@/assets/woman.png'),
     }
-  }
+  },
 }
 </script>
 
