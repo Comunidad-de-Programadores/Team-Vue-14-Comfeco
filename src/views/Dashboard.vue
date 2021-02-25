@@ -8,7 +8,7 @@
     </div>
 </template>
 <script>
-import Layout from "@/components/layouts/Layout";
+import Layout from "@/components/layouts/LayoutDashboard";
 import Community from '@/components/Community/index'
 export default {
   name:"Dashboard",

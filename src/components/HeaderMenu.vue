@@ -3,9 +3,9 @@
     <div class="navbar-brand">
       <router-link to="/" class="navbar-item">
           <img
-           src="@/assets/logo.png"
-           alt="Original logo of the organization comfeco"
-           > 
+            src="@/assets/logo.png"
+            alt="Original logo of the organization comfeco"
+          > 
       </router-link>
     </div>
   </nav>
