@@ -65,6 +65,9 @@ export default {
 }
 </script>
 <style lang="scss" >
+.container {
+  width: 100%;
+}
 .sponsors {
   #align-center {
     display: flex;
