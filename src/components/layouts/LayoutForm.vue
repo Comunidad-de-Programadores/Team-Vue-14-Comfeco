@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-general">
       <header-menu />
       <main class="layout_forms  container">
         <slot></slot>
@@ -19,6 +19,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.container-general{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+}
 .layout_forms {
   margin:100px auto;
   height: auto;
