@@ -11,11 +11,11 @@
 
             <!-- En estas lineas existe algun problema que ocasiona que  la vista se desconfigure y el primer carrousel crezca mas de lo debido -->
 
-            <div class="community-name">
+            <div class="community-body">
               <p class="community-language">
                 <span>{{ community.language }}</span>
               </p>
-              <p>{{ community.name }}</p>
+              <p class="community-name">{{ community.name }}</p>
             </div> 
           </div>
         </div>
@@ -79,13 +79,16 @@ export default {
       }
     }
   }
-  &-name {
+  &-body {
     background: $purple-hard;
     padding: 25px;
     color: $white;
     text-align: center;
-    height: 60px;
+    height: 70px;
     position: relative;
+  }
+  &-name{
+    font-size: 13px;
   }
   &-image {
     display: block;

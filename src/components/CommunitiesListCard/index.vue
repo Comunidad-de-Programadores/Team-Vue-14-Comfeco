@@ -50,6 +50,9 @@ export default {
 .card {
   background-color: $purple-light-2;
   margin-top: 10rem;
+  @media screen and (max-width: 768px) {
+    margin-top: 0;
+  }
 }
 .header {
   display: flex;

@@ -3,13 +3,13 @@
     <header-menu />
     <main class="container">
       <div class="columns">
-        <div class="column is-one-quarter">
+        <div class="column is-3 is-12-mobile">
           <slot name="left-sidebar"></slot>
         </div>
-        <div class="column is-two-quarter">
+        <div class="column is-6 is-12-mobile">
           <slot></slot>
         </div>
-        <div class="column is-one-quarter">
+        <div class="column is-3 is-12-mobile">
           <slot name="right-sidebar"></slot>
         </div>
       </div>
