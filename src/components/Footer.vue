@@ -4,9 +4,9 @@
         <div class="container">
             <div class="content flex has-text-centered">
                <div class="column ">
-                 <router-link to="/" class="has-text-weight-medium">
+                 <a target="_blank" href="https://www.comfeco.com/" class="has-text-weight-medium">
                    COMFECO 2021
-                 </router-link>
+                 </a>
                </div>
                <div class="column ">
                    <p>Team Vue 14</p>
@@ -44,7 +44,7 @@ export default {
 .custom-footer {
   height: auto;
   color: $yellow-hard;
-  margin-top:160px;
+  margin-top:30px;
   background-color: $purple-hard-2;
   a {
     color: $yellow-hard !important;
@@ -73,10 +73,6 @@ export default {
   .custom-footer {
     height: 100px;
     color: $yellow-hard;
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
     background-color: $purple-hard-2;
     .flex {
       display: flex;

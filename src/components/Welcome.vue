@@ -1,9 +1,15 @@
 <template>
-  <div class="is-flex">
-    <div class="is-flex-direction-column">
-      <p class="is-size-1-desktop is-size-1-mobile has-text-centered ml-5">
-        Bienvenidos!
-      </p>
+    <div class="flex">
+        <div class="column">
+            <p class="is-size-1-desktop is-size-1-mobile is-size-1-touch has-text-centered ml-5">Bienvenidos!</p>
+        </div>
+        <div class="section_img column">
+           <b-image
+        class="container "
+        :src=imgUrl
+        >
+        </b-image>
+        </div>
     </div>
     <div class="is-flex-direction-column">
       <b-image class="container" :src="imgUrl"> </b-image>
@@ -15,7 +21,11 @@ export default {
   name: 'WelcomeView',
   data() {
     return {
+<<<<<<< HEAD
       imgUrl: require('@/assets/woman.png'),
+=======
+      imgUrl: require('@/assets/woman.png')
+>>>>>>> development
     }
   },
 }
@@ -30,14 +40,26 @@ p {
 }
 .flex {
   display: flex;
+<<<<<<< HEAD
+=======
+  flex-wrap: wrap;
+>>>>>>> development
 }
-.img-welcome {
-  height: 300px;
+.column {
+  flex-direction: column;
+  align-self: center;
+}
+.section_img {
+  width: 300px;
+  margin: 0;
 }
 @media only screen and (max-width: 600px) {
   .flex {
     display: flex;
-    flex-direction: row;
+    .column {
+      flex-direction: row;
+      margin: 20px;
+    }
   }
 }
 </style>

@@ -1,58 +1,70 @@
 <template>
   <section class="container is-fluid">
     <container-form>
-      <div class="pb-5 pt-4 has-text-centered">
-        <a class="is-size-6 px-5" style="border-right: 1px solid;" href="/">
-          Iniciar sesión
-        </a>
-        <router-link class="is-size-6 px-5" to="/registro">Registrate</router-link>
-      </div>
+      
       <form action="" class="">
-        <b-field>
+        <div class="pb-5 pt-4 has-text-centered">
+          <p class="is-size-4 px-5">Ingresar</p>
+        </div>
+
+        <b-field :type="$v.form.email.$error ? 'is-danger' : ''">
           <b-input
-            v-model="user.email"
+            v-model.trim="$v.form.email.$model"
             placeholder="Correo"
             type="email"
-            required
           >
           </b-input>
         </b-field>
+        <div>
+          <span
+            v-if="!$v.form.email.required && $v.form.email.$error"
+            class="is-size-7"
+            style="color: red"
+          >
+            El correo es requerido.
+          </span>
+        </div>
         <br />
-        <b-field>
+        <b-field :type="$v.form.password.$error ? 'is-danger' : ''">
           <b-input
-            v-model="user.password"
+            v-model.trim="$v.form.password.$model"
             placeholder="Contraseña"
             type="password"
-            required
           >
           </b-input>
         </b-field>
+        <div>
+          <span
+            v-if="!$v.form.password.required && $v.form.password.$error"
+            class="is-size-7 is-block"
+            style="color: red"
+          >
+            La contraseña es requerida.
+          </span>
+        </div>
         <br />
         <router-link class="level-left" to="/recuperar-password">
           <b>¿Olvidaste tu contraseña?</b></router-link
         >
-        <ul class="mt-2 mb-2">
-          <li class="mb-1">
-            <a href="/terminos-y-condiciones" class="helper ">Términos y Condiciones</a>
-          </li>
-          <li class="mb-1">
-            <a href="/proteccion-de-datos" class="helper">Protección de datos</a>
-          </li>
-          <li class="mb-1">
-            <a href="/politica-de-privacidad" class="helper ">Politica de privacidad</a>
-          </li>
-        </ul>
+        <br />
         <button
-          @click.prevent="submit"
+          @click.prevent="onSubmit"
+          type="submit"
           class="button is-dark is-medium is-fullwidth"
         >
           Ingresar
         </button>
+        <div class="mt-3">
+          No tienes una cuenta, <router-link class="is-size-6" to="/registro"
+          >Registrate</router-link
+        >
+        </div>
       </form>
     </container-form>
   </section>
 </template>
 <script>
+import { required, email } from 'vuelidate/lib/validators'
 import ContainerForm from '@/components/Form/ContainerForm'
 import AuthService from '@/services/auth.services'
 export default {
@@ -62,17 +74,34 @@ export default {
   },
   data () {
     return {
-      user: {
+      form: {
         email: '',
         password: ''
       }
     }
   },
+  validations: {
+    form: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required
+      }
+    }
+  },
   methods: {
-    async submit () {
+    onSubmit () {
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+        this.login()
+      }
+    },
+    async login () {
       try {
         console.log(AuthService, 'AuthService')
-        const response = await AuthService.login(this.user)
+        const response = await AuthService.login(this.form)
         console.log(response, 'reponse')
         this.$router.push('dashboard')
       } catch (error) {

@@ -8,7 +8,7 @@
 
 <script>
 // @ is an alias to /src
-import Layout from "@/components/layouts/Layout";
+import Layout from "@/components/layouts/LayoutForm";
 import Login from '@/components/Form/Login'
 export default {
   name: "Home",

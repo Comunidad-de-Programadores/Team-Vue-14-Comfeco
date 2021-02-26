@@ -1,42 +1,38 @@
 <template>
-  <div class="container-general">
-    <header-menu />
-    <main class="container">
-      <slot></slot>
-    </main>
-    <Footer />
-  </div>
+    <div class="container-general">
+      <header-menu />
+      <main class="layout_forms  container">
+        <slot></slot>
+      </main>
+      <Footer />
+    </div>
 </template>
 <script>
-import HeaderMenu from '@/components/HeaderMenu'
-import Footer from '@/components/Footer'
+import HeaderMenu from "@/components/HeaderMenu";
+import Footer from "@/components/Footer";
 export default {
-  name: 'Layout',
+  name: "Layout",
   components: {
     HeaderMenu,
     Footer,
-  },
-}
+  }
+};
 </script>
 <style lang="scss" scoped>
-<<<<<<< HEAD
-@import '@/assets/styles/_main.scss';
-=======
 .container-general{
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 100vh;
 }
->>>>>>> development
 .layout_forms {
-  margin: 100px auto;
+  margin:100px auto;
   height: auto;
   width: 70%;
   // background-color: $purple-light-2 !important;
 }
 @media only screen and (max-width: 600px) {
-  .layout_forms {
+  .layout_forms{
     width: 90%;
   }
 }
