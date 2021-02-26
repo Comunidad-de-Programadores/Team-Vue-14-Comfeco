@@ -11,7 +11,7 @@
         <Counter></Counter>
       </div>
       <template v-slot:right-sidebar>
-        <communities-list-card />
+        <workshops-list-card />
       </template>
     </layout>
   </div>
@@ -22,6 +22,8 @@ import Community from '@/components/Community/index'
 import SponsorViews from '@/views/Sponsor.vue'
 import Counter from '@/components/Counter';
 import CommunitiesListCard from '@/components/CommunitiesListCard'
+import WorkshopsListCard from '@/components/WorkshopsListCard'
+
 export default {
   name: 'Dashboard',
   components: {
@@ -30,6 +32,7 @@ export default {
     SponsorViews,
     Counter,
     CommunitiesListCard,
+    WorkshopsListCard,
   },
 
 }

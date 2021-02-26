@@ -1,12 +1,12 @@
 <template>
   <div>
     <header-menu />
-    <main class="container">
+    <main class="container is-clipped mt-4">
       <div class="columns">
         <div class="column is-one-quarter">
           <slot name="left-sidebar"></slot>
         </div>
-        <div class="column is-two-quarter">
+        <div class="column is-half">
           <slot></slot>
         </div>
         <div class="column is-one-quarter">
@@ -28,9 +28,4 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-@import '@/assets/styles/_main.scss';
-.container {
-  margin-top: 10px;
-}
-</style>
+

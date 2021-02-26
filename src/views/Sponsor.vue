@@ -2,7 +2,9 @@
   <div>
       <div class="mt-6 sponsors-container container" >
         <h4 class="is-size-3 has-text-weight-semibold	has-text-left mt-6">Sponsors</h4>
-       <button id="prev" class="sponsors-slider-prev"></button>
+        <div class="sponsors-control-button-prev">
+          <button id="prev" class="sponsors-slider-prev"></button>
+        </div>
         <Slider v-bind="tinySliderOptions" ref="slider" >
           <div v-for="(img, i) in url" :key="i" class="">
             <div class="sponsors" >
@@ -10,7 +12,9 @@
             </div>
           </div>
         </Slider>
-        <button id="next" class="sponsors-slider-next"></button>
+        <div class="sponsors-control-button-next">
+         <button id="next" class="sponsors-slider-next"></button>
+        </div>
       </div>
   </div>
 </template>
@@ -116,9 +120,9 @@ export default {
       z-index: 2;
       background-color: transparent;
       border: none;
-      border-top: 5px solid #b5b5b5;
-      border-left: 5px solid #b5b5b5;
-      transform: rotate(-45deg) skew(15deg, 15deg);
+      border-top: 3px solid #494141;
+      border-left: 3px solid #494141;
+      transform: rotate(-45deg) skew(-10deg, -10deg);
     }
     #next {
       outline: none;
@@ -126,10 +130,32 @@ export default {
       height: 40px;
       background-color: transparent;
       border: none;
-      border-bottom: 5px solid #b5b5b5;
-      border-right: 5px solid #b5b5b5;
-      transform: rotate(-45deg) skew(15deg, 15deg);
+      border-bottom: 3px solid #494141;
+      border-right: 3px solid #494141;
+      transform: rotate(-45deg) skew(-10deg, -10deg);
     }
+  }
+  
+  &-control-button-prev {
+    background-color: #ffffffc2;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    display: flex;
+    z-index: 1;
+    top: 91px;
+    align-self: center;
+  }
+  &-control-button-next {
+    background-color: #ffffffc2;
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    display: flex;
+    z-index: 1;
+    right: 0;
+    top: 139px;
+    align-self: center;
   }
   &-image {
     display: block;
