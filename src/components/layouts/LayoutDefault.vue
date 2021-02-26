@@ -6,7 +6,7 @@
         <div class="column is-one-quarter">
           <slot name="left-sidebar"></slot>
         </div>
-        <div class="column is-two-quarter">
+        <div class="column is-half">
           <slot></slot>
         </div>
         <div class="column is-one-quarter">
@@ -32,5 +32,6 @@ export default {
 @import '@/assets/styles/_main.scss';
 .container {
   margin-top: 10px;
+  overflow: hidden;
 }
 </style>
