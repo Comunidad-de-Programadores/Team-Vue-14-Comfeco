@@ -50,6 +50,7 @@ export default {
 .card {
   background-color: $purple-light-2;
   margin-top: 10rem;
+  height: 18rem;
   font-size: 0.8rem;
 }
 .header {
