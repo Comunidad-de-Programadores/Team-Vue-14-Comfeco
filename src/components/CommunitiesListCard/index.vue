@@ -50,12 +50,13 @@ export default {
 .card {
   background-color: $purple-light-2;
   margin-top: 10rem;
+  font-size: 0.8rem;
 }
 .header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   span {
     color: white;
   }

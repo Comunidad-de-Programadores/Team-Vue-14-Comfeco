@@ -7,7 +7,7 @@
       <community />
       <sponsor-views />
       <template v-slot:right-sidebar>
-        <communities-list-card />
+        <workshops-list-card />
       </template>
     </layout>
   </div>
@@ -17,6 +17,8 @@ import Layout from '@/components/layouts/LayoutDefault'
 import Community from '@/components/Community/index'
 import SponsorViews from '@/views/Sponsor.vue'
 import CommunitiesListCard from '@/components/CommunitiesListCard'
+import WorkshopsListCard from '@/components/WorkshopsListCard'
+
 export default {
   name: 'Dashboard',
   components: {
@@ -24,6 +26,7 @@ export default {
     Community,
     SponsorViews,
     CommunitiesListCard,
+    WorkshopsListCard,
   },
 }
 </script>
