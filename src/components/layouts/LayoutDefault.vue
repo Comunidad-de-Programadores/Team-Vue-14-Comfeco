@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-menu />
-    <main class="container">
+    <main class="container is-clipped mt-4">
       <div class="columns">
         <div class="column is-one-quarter">
           <slot name="left-sidebar"></slot>
@@ -28,10 +28,4 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-@import '@/assets/styles/_main.scss';
-.container {
-  margin-top: 10px;
-  overflow: hidden;
-}
-</style>
+
