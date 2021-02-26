@@ -25,21 +25,19 @@ export default {
       communities: [
         {
           img:
-            'http://www.paredro.com/wp-content/uploads/2015/11/LOGOS-CUADRADOS-05.png',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Font_Awesome_5_brands_discord_color.svg/1200px-Font_Awesome_5_brands_discord_color.svg.png',
           name: 'Comunidad de programadores',
-          link: '#',
+          link: 'https://discord.gg/GhnDKqrjH8',
         },
         {
-          img:
-            'http://www.paredro.com/wp-content/uploads/2015/11/LOGOS-CUADRADOS-05.png',
-          name: 'El lenguaje de los programadores ',
-          link: '#',
+          img: 'https://www.comfeco.com/icons/code-icon.svg',
+          name: 'COMFECO ',
+          link: 'https://www.comfeco.com/',
         },
         {
-          img:
-            'http://www.paredro.com/wp-content/uploads/2015/11/LOGOS-CUADRADOS-05.png',
-          name: 'Latam Dev',
-          link: '#',
+          img: 'https://es.vuejs.org/images/logo.png',
+          name: 'Vuejs en español',
+          link: 'https://www.facebook.com/groups/vue.es/',
         },
       ],
     }
