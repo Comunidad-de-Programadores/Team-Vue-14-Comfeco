@@ -103,6 +103,7 @@ export default {
         console.log(AuthService, 'AuthService')
         const response = await AuthService.login(this.form)
         console.log(response, 'reponse')
+        localStorage.setItem('token', response.data.access);
         this.$router.push('dashboard')
       } catch (error) {
         console.log(error)
