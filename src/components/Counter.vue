@@ -14,7 +14,7 @@
 
 <style scoped>
 .title1 {
-  font-size: 12vh;
+  font-size: 34px;
   font-weight: bold;
 }
 
