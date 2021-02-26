@@ -1,15 +1,12 @@
 <template>
   <section class="container is-fluid">
     <container-form>
-      <div class="pb-5 pt-4 has-text-centered">
-        <a class="is-size-6 px-5" style="border-right: 1px solid;" href="/">
-          Iniciar sesión
-        </a>
-        <router-link class="is-size-6 px-5" to="/registro"
-          >Registrate</router-link
-        >
-      </div>
+      
       <form action="" class="">
+        <div class="pb-5 pt-4 has-text-centered">
+          <p class="is-size-4 px-5">Ingresar</p>
+        </div>
+
         <b-field :type="$v.form.email.$error ? 'is-danger' : ''">
           <b-input
             v-model.trim="$v.form.email.$model"
@@ -57,6 +54,11 @@
         >
           Ingresar
         </button>
+        <div class="mt-3">
+          No tienes una cuenta, <router-link class="is-size-6" to="/registro"
+          >Registrate</router-link
+        >
+        </div>
       </form>
     </container-form>
   </section>

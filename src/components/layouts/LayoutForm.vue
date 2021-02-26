@@ -1,7 +1,7 @@
 <template>
     <div class="container-general">
       <header-menu />
-      <main class="container">
+      <main class="layout_forms  container">
         <slot></slot>
       </main>
       <Footer />

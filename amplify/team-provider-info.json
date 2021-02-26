@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-comfeco-dev-200202-authRole",
+            "UnauthRoleArn": "arn:aws:iam::506399204577:role/amplify-comfeco-dev-200202-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::506399204577:role/amplify-comfeco-dev-200202-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-comfeco-dev-200202-deployment",
+            "UnauthRoleName": "amplify-comfeco-dev-200202-unauthRole",
+            "StackName": "amplify-comfeco-dev-200202",
+            "StackId": "arn:aws:cloudformation:us-east-1:506399204577:stack/amplify-comfeco-dev-200202/edb9f160-7184-11eb-9e5f-0e797c2a6a1d",
+            "AmplifyAppId": "d3thdq5vn5kuxe"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3thdq5vn5kuxe",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}

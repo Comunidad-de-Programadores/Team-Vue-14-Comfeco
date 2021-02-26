@@ -1,5 +1,5 @@
 <template>
-  <section class="">
+  <section class="layout_forms">
     <container-form>
       <div>
         <div class="" v-if="typeForm === 'notFound'">
