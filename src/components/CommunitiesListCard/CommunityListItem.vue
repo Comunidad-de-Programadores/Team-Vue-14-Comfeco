@@ -3,7 +3,7 @@
     <img :src="img" :alt="img" />
     <h4>{{ name }}</h4>
     <div class="link">
-      <a :href="link">Unirme</a>
+      <a :href="link" target="_blank">Unirme</a>
     </div>
   </div>
 </template>
@@ -38,8 +38,6 @@ export default {
     width: 40px;
     min-height: 40px;
     height: 40px;
-    background: #444;
-    border-radius: 20px;
     margin-right: 8px;
   }
   h4 {
