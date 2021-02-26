@@ -120,9 +120,9 @@ export default {
       z-index: 2;
       background-color: transparent;
       border: none;
-      border-top: 5px solid #494141;
-      border-left: 5px solid #494141;
-      transform: rotate(-45deg) skew(15deg, 15deg);
+      border-top: 3px solid #494141;
+      border-left: 3px solid #494141;
+      transform: rotate(-45deg) skew(-10deg, -10deg);
     }
     #next {
       outline: none;
@@ -130,14 +130,14 @@ export default {
       height: 40px;
       background-color: transparent;
       border: none;
-      border-bottom: 5px solid #494141;
-      border-right: 5px solid #494141;
-      transform: rotate(-45deg) skew(15deg, 15deg);
+      border-bottom: 3px solid #494141;
+      border-right: 3px solid #494141;
+      transform: rotate(-45deg) skew(-10deg, -10deg);
     }
   }
   
   &-control-button-prev {
-    background-color: #ecdddda3;
+    background-color: #ffffffc2;
     position: relative;
     width: 50px;
     height: 100px;
@@ -147,7 +147,7 @@ export default {
     align-self: center;
   }
   &-control-button-next {
-    background-color: #ecdddda3;
+    background-color: #ffffffc2;
     position: absolute;
     width: 50px;
     height: 100px;
