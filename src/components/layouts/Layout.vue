@@ -19,16 +19,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-<<<<<<< HEAD
-@import '@/assets/styles/_main.scss';
-=======
-.container-general{
+.container-general {
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 100vh;
 }
->>>>>>> development
 .layout_forms {
   margin: 100px auto;
   height: auto;
