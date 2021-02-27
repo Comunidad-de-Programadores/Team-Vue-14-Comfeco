@@ -34,10 +34,12 @@
             class="is-flex ml-3 p-1"
             style="border: 1px solid #54484830; border-radius: 1rem 0 1rem 1rem; background-color: #ffffff3d;"
           >
-            <div class="pl-2 -perfil">
-              N
+            <div class="has-text-centered -perfil">
+              <p>
+                {{ username.charAt(0).toUpperCase() }}
+              </p>
             </div>
-            <p class="ml-1">Nick</p>
+            <p class="ml-1">{{ username }}</p>
             <img
               class="ml-1 pb-1"
               style="width: 0.7rem; cursor: pointer"
@@ -48,6 +50,30 @@
       </template>
   </b-navbar>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      token: localStorage.getItem('token'),
+      username: ''
+    }
+  },
+  mounted() {
+    this.username = this.parseJwt()
+  },
+  methods: {
+    parseJwt () {
+      var base64Url = this.token.split('.')[1];
+      var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+
+      return JSON.parse(jsonPayload).username;
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 @import "@/assets/styles/_main.scss";
 .navbar {
