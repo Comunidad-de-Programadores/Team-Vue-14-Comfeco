@@ -1,20 +1,20 @@
 <template>
   <div>
-      <div class="mt-6 sponsors-container" >
+      <div class="mt-6 sponsors-container container" >
         <h4 class="is-size-3 has-text-weight-semibold	has-text-left mt-6">Sponsors</h4>
-        
-       <button id="prev"></button>
-       <button id="next"></button>
+        <div class="sponsors-control-button-prev">
+          <button id="prev" class="sponsors-slider-prev"></button>
+        </div>
         <Slider v-bind="tinySliderOptions" ref="slider" >
           <div v-for="(img, i) in url" :key="i" class="">
             <div class="sponsors" >
               <img :src="img.src" alt="" class="sponsors-image">
             </div>
           </div>
-  
-          
         </Slider>
-         
+        <div class="sponsors-control-button-next">
+         <button id="next" class="sponsors-slider-next"></button>
+        </div>
       </div>
   </div>
 </template>
@@ -69,12 +69,34 @@ export default {
 }
 </script>
 <style lang="scss" >
+.container {
+  width: 100%;
+}
 .sponsors {
   #align-center {
     display: flex;
     align-items: center;
   }
+  &-slider-prev {
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: calc(50% - 15px);
+  }
+  &-slider-next {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 15px);
+  }
   &-container {
+    .tns-outer {
+      position: relative;
+      padding: 0 45px;
+    }
+    .tns-outer {
+      position: relative;
+    }
     .tns-nav {
       text-align: center;
       margin-top: 10px;
@@ -95,11 +117,12 @@ export default {
       outline: none;
       width: 40px;
       height: 40px;
+      z-index: 2;
       background-color: transparent;
       border: none;
-      border-top: 3px solid #555;
-      border-left: 3px solid #555;
-      transform: rotate(-45deg) skew(15deg, 15deg);
+      border-top: 3px solid #494141;
+      border-left: 3px solid #494141;
+      transform: rotate(-45deg) skew(-10deg, -10deg);
     }
     #next {
       outline: none;
@@ -107,10 +130,32 @@ export default {
       height: 40px;
       background-color: transparent;
       border: none;
-      border-bottom: 3px solid #555;
-      border-right: 3px solid #555;
-      transform: rotate(-45deg) skew(15deg, 15deg);
+      border-bottom: 3px solid #494141;
+      border-right: 3px solid #494141;
+      transform: rotate(-45deg) skew(-10deg, -10deg);
     }
+  }
+  
+  &-control-button-prev {
+    background-color: #ffffffc2;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    display: flex;
+    z-index: 1;
+    top: 91px;
+    align-self: center;
+  }
+  &-control-button-next {
+    background-color: #ffffffc2;
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    display: flex;
+    z-index: 1;
+    right: 0;
+    top: 139px;
+    align-self: center;
   }
   &-image {
     display: block;
