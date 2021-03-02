@@ -5,7 +5,9 @@
 @import '~bulma';
 @import '~buefy/src/scss/buefy';
 @import '_variables';
-
+.container{
+  padding: 8px 0;
+}
 html{
   overflow: auto;
 }
