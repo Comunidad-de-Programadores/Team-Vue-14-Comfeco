@@ -18,7 +18,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .container-general{
   display: flex;
   flex-direction: column;
@@ -29,7 +29,6 @@ export default {
   margin:100px auto;
   height: auto;
   width: 70%;
-  // background-color: $purple-light-2 !important;
 }
 @media only screen and (max-width: 600px) {
   .layout_forms{

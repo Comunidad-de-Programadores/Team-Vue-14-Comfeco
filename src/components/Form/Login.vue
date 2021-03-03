@@ -100,13 +100,10 @@ export default {
     },
     async login () {
       try {
-        console.log(AuthService, 'AuthService')
         const response = await AuthService.login(this.form)
-        console.log(response, 'reponse')
         localStorage.setItem('token', response.data.access);
         this.$router.push('dashboard')
       } catch (error) {
-        console.log(error)
         this.$buefy.snackbar.open({
           duration: 5000,
           message: 'Las credenciales no coinciden con una cuenta activa',
