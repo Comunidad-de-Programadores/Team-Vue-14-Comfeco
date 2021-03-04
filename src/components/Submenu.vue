@@ -6,32 +6,32 @@
           <b-button
             class="column"
             icon-left="account"
-            :type="active == 'profile' ? 'is-dark' : 'is-light'"
-            @click="active = 'profile'"
+            :type="active.value == 'profile' ? 'is-dark' : 'is-light'"
+            @click="change('profile')"
           >
             <span>Mi perfil</span>
           </b-button>
           <b-button
             class="column"
             icon-left="shield-star"
-            :type="active == 'badges' ? 'is-dark' : 'is-light'"
-            @click="active = 'badges'"
+            :type="active.value == 'badges' ? 'is-dark' : 'is-light'"
+            @click="change('badges')"
           >
             <span>Insignias</span>
           </b-button>
           <b-button
             class="column"
             icon-left="account-group"
-            :type="active == 'groups' ? 'is-dark' : 'is-light'"
-            @click="active = 'groups'"
+            :type="active.value == 'groups' ? 'is-dark' : 'is-light'"
+            @click="change('groups')"
           >
             <span>Grupos</span>
           </b-button>
           <b-button
             class="column"
             icon-left="calendar-multiple"
-            :type="active == 'events' ? 'is-dark' : 'is-light'"
-            @click="active = 'events'"
+            :type="active.value == 'events' ? 'is-dark' : 'is-light'"
+            @click="change('events')"
           >
             <span>Eventos</span>
           </b-button>
@@ -43,9 +43,14 @@
 <script>
 export default {
   name: 'Submenu',
-  data () {
-    return {
-        active: 'profile'
+   props: {
+    active: {
+      type: Object,
+    }
+  },
+  methods: {
+    change(value) {
+      this.active.value = value
     }
   }
 }
