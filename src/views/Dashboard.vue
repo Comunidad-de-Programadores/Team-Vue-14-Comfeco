@@ -19,7 +19,7 @@
 <script>
 import Layout from '@/components/layouts/LayoutDashboard'
 import Community from '@/components/Community/index'
-import SponsorViews from '@/views/Sponsor.vue'
+import SponsorViews from '@/components/Sponsor.vue'
 import Counter from '@/components/Counter';
 import CommunitiesListCard from '@/components/CommunitiesListCard'
 import WorkshopsListCard from '@/components/WorkshopsListCard'
