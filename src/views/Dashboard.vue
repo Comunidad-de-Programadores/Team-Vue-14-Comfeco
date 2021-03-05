@@ -24,13 +24,8 @@
 <script>
 import Layout from '@/components/layouts/LayoutDefault'
 import Community from '@/components/Community/index'
-<<<<<<< HEAD
-import SponsorViews from '@/views/Sponsor.vue'
-import Counter from '@/components/Counter'
-=======
 import SponsorViews from '@/components/Sponsor.vue'
 import Counter from '@/components/Counter';
->>>>>>> development
 import CommunitiesListCard from '@/components/CommunitiesListCard'
 import ProfileCard from '@/components/ProfileCard'
 import WorkshopsListCard from '@/components/WorkshopsListCard'
