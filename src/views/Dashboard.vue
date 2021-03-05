@@ -3,11 +3,16 @@
     <layout>
       <template v-slot:left-sidebar>
         <communities-list-card />
+        <profile-card />
       </template>
       <community />
       <sponsor-views />
       <div class="">
-        <h3 class="is-size-5 mt-4 has-text-weight-semibold	has-text-centered mb-2">Preperate lo bueno esta por venir</h3>
+        <h3
+          class="is-size-5 mt-4 has-text-weight-semibold has-text-centered mb-2"
+        >
+          Preperate lo bueno esta por venir
+        </h3>
         <Counter></Counter>
       </div>
       <template v-slot:right-sidebar>
@@ -20,8 +25,9 @@
 import Layout from '@/components/layouts/LayoutDefault'
 import Community from '@/components/Community/index'
 import SponsorViews from '@/views/Sponsor.vue'
-import Counter from '@/components/Counter';
+import Counter from '@/components/Counter'
 import CommunitiesListCard from '@/components/CommunitiesListCard'
+import ProfileCard from '@/components/ProfileCard'
 import WorkshopsListCard from '@/components/WorkshopsListCard'
 
 export default {
@@ -32,9 +38,9 @@ export default {
     SponsorViews,
     Counter,
     CommunitiesListCard,
+    ProfileCard,
     WorkshopsListCard,
   },
-
 }
 </script>
 <style lang="scss">
