@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-menu />
+    <header-dashboard />
     <main class="container is-clipped mt-4">
       <div class="columns">
         <div class="column is-one-quarter">
@@ -18,12 +18,12 @@
   </div>
 </template>
 <script>
-import HeaderMenu from '@/components/HeaderMenu'
+import HeaderDashboard from "@/components/HeaderDashboard";
 import Footer from '@/components/Footer'
 export default {
   name: 'Layout',
   components: {
-    HeaderMenu,
+    HeaderDashboard,
     Footer,
   },
 }
