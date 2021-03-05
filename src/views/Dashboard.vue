@@ -23,6 +23,7 @@ import SponsorViews from '@/views/Sponsor.vue'
 import Counter from '@/components/Counter';
 import CommunitiesListCard from '@/components/CommunitiesListCard'
 import WorkshopsListCard from '@/components/WorkshopsListCard'
+import Authenticated from '@/middleware/authenticated'
 
 export default {
   name: 'Dashboard',
@@ -34,7 +35,14 @@ export default {
     CommunitiesListCard,
     WorkshopsListCard,
   },
-
+  mounted() {
+    // if (localStorage.getItem('token')=== null) {
+    //   this.$router.push({
+    //     name: 'Login',
+    //   });
+    // }
+    Authenticated()
+  }
 }
 </script>
 <style lang="scss">

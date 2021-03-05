@@ -11,7 +11,7 @@
 import HeaderDashboard from "@/components/HeaderDashboard";
 import Footer from "@/components/Footer";
 export default {
-  name: "Layout",
+  name: "LayoutDashboard",
   components: {
     HeaderDashboard,
     Footer
