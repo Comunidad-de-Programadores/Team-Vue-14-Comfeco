@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div>
     <edit-profile></edit-profile>
   </div>

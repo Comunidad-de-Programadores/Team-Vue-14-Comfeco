@@ -8,23 +8,23 @@
         <div class="columns">
           <div class="column">
             <b-field label="Nickname">
-              <b-input ></b-input>
+              <b-input v-model="user.username"></b-input>
             </b-field>
           </div>
           <div class="column">
             <b-field label="Correo">
-              <b-input type="email" >
+              <b-input type="email" v-model="user.email">
               </b-input>
             </b-field>
           </div>
         </div>
         <div class="columns">
           <div class="column">
-            <b-field label="Género">
+            <b-field label="Género" v-model="user.gender">
               <b-input ></b-input>
             </b-field>
           </div>
-          <div class="column">
+          <div class="column ">
             <b-field label="Fecha de nacimiento">
               <b-datepicker :focused-date="date"
                 :first-day-of-week="1">
@@ -46,19 +46,19 @@
           </div>
         </div>
         <div class="columns">
-          <div class="column">
-            <b-field label="País">
-              <b-input ></b-input>
+          <div class="column is-6">
+            <b-field label="País" >
+              <b-input v-model="user.country"></b-input>
             </b-field>
           </div>
-          <div class="column">
+          <div class="column is-6">
             <b-field label="Área de conocimiento">
-              <b-select placeholder="Select a name">
+              <b-select placeholder="Select a name" v-model="user.biography">
                   <option
                       v-for="(select,index) in inputSelect"
-                      :value="select"
+                      :value="select.value"
                       :key="index">
-                      {{ select }}
+                      {{ select.name }}
                   </option>
               </b-select>
             </b-field>
@@ -67,35 +67,35 @@
         <div class="columns">
           <div class="column is-full">
             <b-field label="Facebook">
-              <b-input ></b-input>
+              <b-input v-model="user.facebook"></b-input>
             </b-field>
           </div>
         </div>
         <div class="columns">
           <div class="column is-full">
             <b-field label="Twitter">
-              <b-input ></b-input>
+              <b-input v-model="user.twitter"></b-input>
             </b-field>
           </div>
         </div>
         <div class="columns">
           <div class="column is-full">
             <b-field label="Github">
-              <b-input ></b-input>
+              <b-input v-model="user.github"></b-input>
             </b-field>
           </div>
         </div>
         <div class="columns">
           <div class="column is-full">
             <b-field label="Linkedin">
-              <b-input ></b-input>
+              <b-input v-model="user.linkedin"></b-input>
             </b-field>
           </div>
         </div>
         <div class="columns">
           <div class="column is-full">
             <b-field label="Biografía">
-              <textarea class="textarea is-medium" name="" id=""  rows="5"></textarea>
+              <textarea class="textarea is-medium" v-model="user.biography" name="" id=""  rows="5"></textarea>
             </b-field>
           </div>
         </div>
@@ -136,6 +136,7 @@
   </div>
 </template>
 <script>
+import AuthService from '@/services/auth.services'
 export default {
   name: 'FormEditProfile',
   data() {
@@ -157,21 +158,46 @@ export default {
         { name: 'December', value: 11 }
       ],
       inputSelect: [
-        'Frontend',
-        'Backend',
-        'DevOps',
-        'Video Game Developer',
-        'UI/UX',
-        'Database developer',
-        'Cloud Computing'
-      ]
+        { value:'F', name: 'Frontend'},
+        { value:'B', name: 'Backend'},
+        { value:'D', name: 'Devops'},
+        { value:'V', name: 'Video Gamer Developer'},
+        { value:'UIX', name: 'UI/UX'},
+        { value:'DB', name: 'Data Base Developer'},
+        { value:'CC', name: 'Cloud Computing'} 
+      ],
+      user: {
+        biography: "",
+        birth_day: null,
+        country: "",
+        email: "",
+        facebook: "",
+        first_name: "",
+        gender: "",
+        github: "",
+        last_name: "",
+        linkedin: "",
+        twitter: "",
+        username: "",
+      }
     }
+  },
+  created() {
+    this.getProfile()    
   },
   methods: {
     selectMonth(option) {
       if (option) {
         this.date = new Date(this.date)
         this.date.setMonth(option.value)
+      }
+    },
+    async getProfile() {
+      try {
+        const response = await AuthService.getProfile()
+        Object.assign(this.user, response.data)
+      } catch (error) {
+        console.log(error)
       }
     }
   },
