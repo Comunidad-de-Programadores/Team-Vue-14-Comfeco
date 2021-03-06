@@ -67,6 +67,7 @@
 import { required, email } from 'vuelidate/lib/validators'
 import ContainerForm from '@/components/Form/ContainerForm'
 import AuthService from '@/services/auth.services'
+import local from '@/utils/localStorage'
 export default {
   name: 'Login',
   components: {
@@ -100,9 +101,8 @@ export default {
     },
     async login () {
       try {
-        console.log(AuthService, 'AuthService')
         const response = await AuthService.login(this.form)
-        console.log(response, 'reponse')
+        local.set('token', response.data.access)
         this.$router.push('dashboard')
       } catch (error) {
         console.log(error)
