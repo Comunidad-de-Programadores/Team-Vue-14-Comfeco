@@ -29,22 +29,41 @@
           <img
             style="width: 1rem; cursor: pointer"
             src="@/assets/bell-regular.svg"
-          > 
-          <div
-            class="is-flex ml-3 p-1"
-            style="border: 1px solid #54484830; border-radius: 1rem 0 1rem 1rem; background-color: #ffffff3d;"
           >
-            <div class="has-text-centered -perfil">
-              <p>
-                {{ username.charAt(0).toUpperCase() }}
+          <div
+            class="ml-3 -perfil"
+            :class="isActive ? 'p-2' : 'p-1'"
+            :style="isActive ? 'height: 6.5rem' : ''"
+          >
+            <div class="is-flex">
+              <div class="has-text-centered -img-perfil">
+                <p>
+                  {{ username.charAt(0).toUpperCase() }}
+                </p>
+              </div>
+              <p class="ml-1">{{ username }}</p>
+              <img
+                class="ml-1 pb-1"
+                style="width: 0.7rem; cursor: pointer"
+                src="@/assets/caret-down-solid.svg"
+                @click="isActive = !isActive"
+              >
+            </div>
+            <div v-if="isActive" class="mt-3">
+              <router-link
+                class="is-block"
+                style="border-bottom: 1px solid; color: #000"
+                to="#"
+              >
+                Mi perfil
+              </router-link>
+              <p
+                style="color: #000; cursor: pointer;"
+                @click="logOut"
+              >
+                Cerrar sesión
               </p>
             </div>
-            <p class="ml-1">{{ username }}</p>
-            <img
-              class="ml-1 pb-1"
-              style="width: 0.7rem; cursor: pointer"
-              src="@/assets/caret-down-solid.svg"
-            > 
           </div>
         </div>
       </template>
@@ -52,24 +71,34 @@
 </template>
 <script>
 export default {
+  name: 'HeaderDashboard',
   data() {
     return {
-      token: localStorage.getItem('token'),
-      username: ''
+      username: '',
+      isActive: false,
     }
   },
   mounted() {
-    this.username = this.parseJwt()
+    if (localStorage.getItem('token') !== null) {
+      this.username = this.parseJwt()
+    }
   },
   methods: {
     parseJwt () {
-      var base64Url = this.token.split('.')[1];
+      const token = localStorage.getItem('token')
+      var base64Url = token.split('.')[1];
       var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
           return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
       }).join(''));
 
       return JSON.parse(jsonPayload).username;
+    },
+    logOut() {
+      localStorage.removeItem('token');
+      this.$router.push({
+        name: 'Login',
+      });
     }
   }
 }
@@ -81,6 +110,11 @@ export default {
   background-color: $purple-light-2!important;
 }
 .-perfil {
+  border: 1px solid #54484830;
+  border-radius: 1rem 0 1rem 1rem;
+  background-color: #ffffff3d;
+}
+.-img-perfil {
   border: 1px solid;
   border-radius: 50%;
   width: 2rem;
