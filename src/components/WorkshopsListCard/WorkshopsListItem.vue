@@ -3,12 +3,10 @@
     <img
       v-if="status === 'pending'"
       src="@/assets/icons/ellipsis.png"
-      :alt="img"
     />
     <img
       v-if="status === 'finished'"
       src="@/assets/icons/checkmark.png"
-      :alt="img"
     />
     <div>
       <p class="item-title">{{ title }}</p>

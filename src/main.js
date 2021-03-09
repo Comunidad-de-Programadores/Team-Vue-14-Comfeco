@@ -6,7 +6,11 @@ import Buefy from 'buefy'
 import '@/assets/styles/_main.scss'
 import 'tiny-slider/src/tiny-slider.scss'
 import Vuelidate from 'vuelidate'
+import VueSocial from '@growthbunker/vuesocial'
 
+Vue.use(VueSocial, {
+  iconPath: '/networks/'
+})
 Vue.use(Vuelidate)
 
 Vue.use(Buefy)

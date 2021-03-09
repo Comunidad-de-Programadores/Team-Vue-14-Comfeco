@@ -1,7 +1,7 @@
 <template>
   <div>
-      <div class="mt-6 sponsors-container container" >
-        <h4 class="is-size-3 has-text-weight-semibold	has-text-left mt-6">Sponsors</h4>
+      <div class="sponsors-container container" >
+        <h4 class="is-size-3 has-text-weight-semibold	has-text-left mt-3 mb-6">Sponsors</h4>
         <div class="sponsors-control-button-prev">
           <button id="prev" class="sponsors-slider-prev"></button>
         </div>
@@ -38,13 +38,13 @@ export default {
         controls: true,
         responsive: {
           360: {
-            items: 4
+            items: 8
           },
           640: {
-            items: 4
+            items: 8
           },
           700: {
-            items: 5
+            items: 8
           },
           900: {
             items: 8
@@ -90,6 +90,7 @@ export default {
     top: calc(50% - 15px);
   }
   &-container {
+    position: relative;
     .tns-outer {
       position: relative;
       padding: 0 45px;
@@ -115,8 +116,8 @@ export default {
 
     #prev {
       outline: none;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       z-index: 2;
       background-color: transparent;
       border: none;
@@ -126,8 +127,8 @@ export default {
     }
     #next {
       outline: none;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       background-color: transparent;
       border: none;
       border-bottom: 3px solid #494141;
@@ -137,25 +138,27 @@ export default {
   }
   
   &-control-button-prev {
-    background-color: #ffffffc2;
-    position: relative;
-    width: 50px;
-    height: 100px;
+    background-color: #fff;
+    position: absolute;
+    width: 60px;
+    height: 60px;
     display: flex;
     z-index: 1;
-    top: 91px;
     align-self: center;
+    left: 0;
+    bottom: 35px;
   }
   &-control-button-next {
-    background-color: #ffffffc2;
+    background-color: #fff;
     position: absolute;
-    width: 50px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     display: flex;
     z-index: 1;
     right: 0;
-    top: 139px;
     align-self: center;
+    right: 0;
+    bottom: 35px;
   }
   &-image {
     display: block;
