@@ -29,7 +29,6 @@ import Counter from '@/components/Counter';
 import CommunitiesListCard from '@/components/CommunitiesListCard'
 import ProfileCard from '@/components/ProfileCard'
 import WorkshopsListCard from '@/components/WorkshopsListCard'
-import Authenticated from '@/middleware/authenticated'
 
 export default {
   name: 'Dashboard',
@@ -41,14 +40,6 @@ export default {
     CommunitiesListCard,
     ProfileCard,
     WorkshopsListCard,
-  },
-  mounted() {
-    // if (localStorage.getItem('token')=== null) {
-    //   this.$router.push({
-    //     name: 'Login',
-    //   });
-    // }
-    Authenticated()
   }
 }
 </script>

@@ -62,7 +62,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
+      import(/* webpackChunkName: "about" */ '../views/Dashboard.vue'),
+    meta: { requiresAuth: true }
   },
   {
     path: '/recuperar-password',
@@ -89,7 +90,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/EditProfile.vue')
+      import(/* webpackChunkName: "about" */ '../views/EditProfile.vue'),
+    meta: { requiresAuth: true }
   },
   {
     path: '/profile',
@@ -98,7 +100,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Profile.vue')
+      import(/* webpackChunkName: "about" */ '../views/Profile.vue'),
+    meta: { requiresAuth: true }
   }
 ]
 
@@ -106,6 +109,21 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token') || null
+  if (to.meta.requiresAuth) {
+    if (token === null || token === '') {
+      next({
+        name: 'Login'
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 })
 
 export default router

@@ -31,9 +31,10 @@
             src="@/assets/bell-regular.svg"
           >
           <div
-            class="ml-3 -perfil"
+            class="ml-3 -perfil is-clickable"
             :class="isActive ? 'p-2' : 'p-1'"
             :style="isActive ? 'height: 6.5rem' : ''"
+            @click="isActive = !isActive"
           >
             <div class="is-flex">
               <div class="has-text-centered -img-perfil">
@@ -46,14 +47,13 @@
                 class="ml-1 pb-1"
                 style="width: 0.7rem; cursor: pointer"
                 src="@/assets/caret-down-solid.svg"
-                @click="isActive = !isActive"
               >
             </div>
             <div v-if="isActive" class="mt-3">
               <router-link
                 class="is-block"
                 style="border-bottom: 1px solid; color: #000"
-                to="#"
+                :to="{ name: 'Profile' }"
               >
                 Mi perfil
               </router-link>
