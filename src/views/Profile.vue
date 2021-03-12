@@ -6,7 +6,7 @@
         <submenu :active.sync="active" />
       </template>
       <template v-slot:left-sidebar>
-        <p>Lado izquierdo</p>
+        <profile-card />
       </template>
       <profile-box />
       <template v-slot:right-sidebar>
@@ -40,12 +40,15 @@
 import Layout from '@/components/layouts/LayoutDefaultProfile'
 import ProfileBox from '@/components/ProfileBox.vue'
 import Submenu from '@/components/Submenu'
+import ProfileCard from '@/components/ProfileCard'
+
 export default {
   name: 'Dashboard',
   components: {
     Layout,
     ProfileBox,
-    Submenu
+    Submenu,
+    ProfileCard,
   },
   data () {
     return {
