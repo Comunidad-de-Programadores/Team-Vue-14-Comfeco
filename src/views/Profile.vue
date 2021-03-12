@@ -10,7 +10,7 @@
       </template>
       <profile-box />
       <template v-slot:right-sidebar>
-        <p>Lado derecho</p>
+        <community-list-events />
       </template>
     </layout>
     <!-- ----------Badges------------ -->
@@ -21,12 +21,16 @@
       <div><p>Insignias</p></div>
     </layout>
     <!-- ----------Groups------------ -->
-    <layout v-else-if="active.value == 'groups'">
+    <!-- <layout v-else-if="active.value == 'groups'">
       <template v-slot:submenu>
         <submenu :active.sync="active" />
       </template>
-      <div><p>Grupos</p></div>
-    </layout>
+    </layout> -->
+    <Group v-else-if="active.value == 'groups'">
+      <template v-slot:submenu>
+        <submenu :active.sync="active" />
+      </template>
+    </Group>
     <!-- ----------Events------------ -->
     <layout v-else-if="active.value == 'events'">
       <template v-slot:submenu>
@@ -40,12 +44,17 @@
 import Layout from '@/components/layouts/LayoutDefaultProfile'
 import ProfileBox from '@/components/ProfileBox.vue'
 import Submenu from '@/components/Submenu'
+import CommunityListEvents from '@/components/CommunitiesListCard/CommunityListEvents'
+import Group from '@/components/Groups/Index.vue'
+
 export default {
   name: 'Dashboard',
   components: {
     Layout,
     ProfileBox,
-    Submenu
+    Submenu,
+    CommunityListEvents,
+    Group
   },
   data () {
     return {
