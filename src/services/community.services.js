@@ -10,6 +10,9 @@ class CommunityService extends ApiService {
       return resolve(CommunityData)
     })
   }
+  getEvents() {
+    return this.http.get('api/events/')
+  }
 }
 
 const instance = new CommunityService()
