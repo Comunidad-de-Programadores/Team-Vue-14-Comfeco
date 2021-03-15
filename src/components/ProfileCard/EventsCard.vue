@@ -8,7 +8,7 @@
         icon-right="share-variant"
       />
       <figure class="image is-16by9">
-        <img :src="event.img" alt="Placeholder image" />
+        <img :src="event.image" alt="Placeholder image" />
       </figure>
     </div>
     <div class="card-content">
@@ -21,7 +21,7 @@
       </div>
       <div class="level">
         <a class="level-left" href="#">Más información</a>
-        <b-button @click="join" class="level-right" type="is-danger" rounded
+        <b-button @click="join" class="level-right" type="is-dark" rounded
           >Participar</b-button
         >
       </div>
@@ -29,11 +29,17 @@
   </div>
 </template>
 <script>
+import CommunityService from '@/services/community.services'
 export default {
   name: 'EventsCard',
   props: {
     event: {
       type: Object
+    }
+  },
+  data () {
+    return {
+      loading: true
     }
   },
   methods: {
@@ -43,11 +49,24 @@ export default {
         type: 'is-info'
       })
     },
-    join () {
-      this.$buefy.toast.open({
-        message: '¡Enhorabuena! Has quedado registrado para el evento',
-        type: 'is-success'
-      })
+    async join () {
+      try {
+        this.loading = true
+        const response = await CommunityService.addToEvent(this.event.id)
+        console.log(response)
+        this.$buefy.toast.open({
+          message: '¡Enhorabuena! Has quedado registrado para el evento',
+          type: 'is-success'
+        })
+      } catch (error) {
+        console.log(error)
+        this.$buefy.toast.open({
+          message: 'Algo salió mal',
+          type: 'is-danger'
+        })
+      } finally {
+        this.loading = false
+      }
     },
     getDate (my_date) {
       var options = {

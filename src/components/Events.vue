@@ -66,6 +66,7 @@ export default {
         this.loading = true
         const response = await CommunityService.getEvents()
         this.events = response.data
+        console.log(this.events)
       } catch (error) {
         console.log(error)
       } finally {
