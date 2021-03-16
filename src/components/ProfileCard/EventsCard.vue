@@ -17,11 +17,20 @@
         <p class="subtitle is-6">{{ event.description }}</p>
         Fecha de inicio:
         <time>{{ getDate(event.event_date) }}</time>
+        <template v-if="joined && joined_at !=''"
+          ><br />
+          Inscrito el: <time>{{ getShortDate(joined_at) }}</time></template
+        >
         <br />
       </div>
       <div class="level">
         <a class="level-left" href="#">Más información</a>
-        <b-button @click="join" class="level-right" type="is-dark" rounded
+        <b-button
+          v-if="!joined"
+          @click="join"
+          class="level-right"
+          type="is-dark"
+          rounded
           >Participar</b-button
         >
       </div>
@@ -35,6 +44,14 @@ export default {
   props: {
     event: {
       type: Object
+    },
+    joined: {
+      type: Boolean,
+      default: false
+    },
+    joined_at: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -54,6 +71,7 @@ export default {
         this.loading = true
         const response = await CommunityService.addToEvent(this.event.id)
         console.log(response)
+        this.joined = true
         this.$buefy.toast.open({
           message: '¡Enhorabuena! Has quedado registrado para el evento',
           type: 'is-success'
@@ -75,6 +93,16 @@ export default {
         day: 'numeric',
         hour: 'numeric',
         hour12: 'false'
+      }
+      let date = new Date(my_date)
+      let date_format = date.toLocaleString('es-ES', options)
+      return date_format
+    },
+    getShortDate (my_date) {
+      var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
       }
       let date = new Date(my_date)
       let date_format = date.toLocaleString('es-ES', options)
