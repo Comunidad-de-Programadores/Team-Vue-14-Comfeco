@@ -1,24 +1,61 @@
 <template>
   <div class="columns">
-    <b-field class="column">
-      <b-autocomplete
-        rounded
-        placeholder="Bucar grupo"
-        icon="magnify"
-        clearable
-      >
-      </b-autocomplete>
-    </b-field>
-    <b-field class="column">
-      <b-select placeholder="Filtrar por lenguaje" expanded rounded>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-      </b-select>
-    </b-field>
+    <form @submit.prevent="submit">
+      <b-field class="column">
+        <b-autocomplete
+          v-model="name"
+          :data="filteredGroupArray"
+          rounded
+          placeholder="Bucar grupo"
+          icon="magnify"
+          clearable
+        >
+          <template #empty>No se ha encontrado el grupo</template>
+        </b-autocomplete>
+      </b-field>
+    </form>
+    <form @change="languageChange()" class="column">
+      <b-field >
+        <b-select placeholder="Filtrar por lenguaje" expanded rounded v-model="language">
+          <option value="tekki">Tekki</option>
+          <option value="Python">Python</option>
+        </b-select>
+      </b-field>
+    </form>
   </div>
 </template>
 <script>
 export default {
-  name: 'GroupInput'
+  name: 'GroupInput',
+  props: {
+    names: {
+      type: Array,
+      default: () => []
+    }
+  },
+  data() {
+    return {
+      language: null,
+      name: ''
+    }
+  },
+  methods: {
+    submit() {
+      this.$emit('search', this.name)
+    },
+    languageChange() {
+      this.$emit('selected', this.language)
+    }
+  },
+  computed: {
+    filteredGroupArray() {
+      return this.names.filter((name) => {
+        return name
+          .toString()
+          .toLowerCase()
+          .indexOf(this.name.toLowerCase()) >= 0
+      })
+    }
+  }
 }
 </script>

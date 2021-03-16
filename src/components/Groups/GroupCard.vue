@@ -1,25 +1,68 @@
 <template>
   <div class="card">
-    <div class="-img-group"></div>
+    <div class="-img-group">
+      <img
+        :src="group.image"
+        :alt="group.tag"
+        style="width: 100%; max-height: 100%"
+      >
+    </div>
     <div class="">
-      <b-tag type="is-info" size="is-medium" class="mt-2 mb-5">
-        First
+      <b-tag
+        :type="typeGroup"
+        size="is-medium"
+        class="mt-2 mb-5"
+      >
+        {{group.tag }}
       </b-tag>
       <div class="p-3">
-        <h3 class="has-text-weight-bold  is-size-4">Name</h3>
+        <h3 class="has-text-weight-bold  is-size-4">{{ group.name }}</h3>
         <p class="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, mollitia cumque? Doloribus 
+          {{ group.description }}
         </p>
         <div class="buttons">
-          <b-button type="is-primary" expanded>Unirse</b-button>
+          <b-button :type="typeGroup" expanded>
+            Unirse
+          </b-button>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: 'GroupCard',
+  props: {
+    group: {
+      type: Object,
+      default: () => {}
+    }
+  },
+  data() {
+    return {
+      typeGroup: ''
+    }
+  },
+  mounted() {
+    this.typeGroup = this.typeGroupMethod()
+  },
+  methods: {
+    typeGroupMethod() {
+      if(this.group.tag === 'Python') {
+        return 'is-success'
+      } else if(this.group.tag === 'Tekki') {
+        return '-is-primary'
+      }
+    }
+  }
+}
+</script>
 <style scoped>
 .-img-group {
   height: 10rem;
-  border-bottom: 1px solid;
+}
+.-is-primary {
+  background-color: purple;
+  color: #fff;
 }
 </style>
