@@ -10,10 +10,25 @@
         </div>
         <div class="column p-2">
           <div class="mb-5 ml-2">
-            <group-input @search="nameGroup" @selected="selectedLanguage" :names="names" />
+            <group-input @selected="selectedLanguage">
+              <template v-slot:search>
+                <b-field class="column">
+                  <b-autocomplete
+                    v-model="name"
+                    :data="filteredGroupNames"
+                    rounded
+                    placeholder="Bucar grupo"
+                    icon="magnify"
+                    clearable
+                  >
+                    <template #empty>No se ha encontrado el grupo</template>
+                  </b-autocomplete>
+                </b-field>
+              </template>
+            </group-input>
           </div>
           <div class="columns is-flex-wrap-wrap">
-            <div class="column is-4" v-for="group in filteredGroupName" :key="group.id">
+            <div class="column is-4" v-for="group in filteredGroup" :key="group.id">
               <group-card :group="group" />
             </div>
           </div>
@@ -61,15 +76,12 @@ export default {
     })
   },
   methods: {
-    nameGroup(name) {
-      this.name = name
-    },
     selectedLanguage(language) {
       this.language = language
     }
   },
   computed: {
-    filteredGroupName() {
+    filteredGroup() {
       return this.groups.filter((group) => {
         return group.name
           .toLowerCase()
@@ -77,6 +89,14 @@ export default {
           & group.tag
           .toLowerCase()
           .indexOf(this.language.toLowerCase()) >= 0
+      })
+    },
+    filteredGroupNames() {
+      return this.names.filter((name) => {
+        return name
+          .toString()
+          .toLowerCase()
+          .indexOf(this.name.toLowerCase()) >= 0
       })
     }
   }

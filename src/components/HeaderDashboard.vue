@@ -26,10 +26,11 @@
 
       <template #end>
         <div class="is-flex p-3">
-          <img
-            style="width: 1rem; cursor: pointer"
-            src="@/assets/bell-regular.svg"
-          >
+          <b-icon
+            class="is-clickable mt-2"
+            icon="bell"
+            size="is-small">
+          </b-icon>
           <div
             class="ml-3 -perfil is-clickable"
             :class="isActive ? 'p-2' : 'p-1'"
@@ -43,11 +44,11 @@
                 </p>
               </div>
               <p class="ml-1">{{ username }}</p>
-              <img
-                class="ml-1 pb-1"
-                style="width: 0.7rem; cursor: pointer"
-                src="@/assets/caret-down-solid.svg"
-              >
+              <b-icon
+                class="mt-1"
+                icon="arrow-down-circle"
+                size="is-small">
+              </b-icon>
             </div>
             <div v-if="isActive" class="mt-3">
               <router-link
