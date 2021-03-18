@@ -32,12 +32,18 @@
       </template>
     </Group>
     <!-- ----------Events------------ -->
-    <layout v-else-if="active.value == 'events'">
+    <layout-full-page-submenu v-else-if="active.value == 'events'">
       <template v-slot:submenu>
         <submenu :active.sync="active" />
       </template>
-      <div><p>Eventos</p></div>
-    </layout>
+      <br />
+      <div class="container has-text-centered">
+        <p class="title is-4">Eventos activos</p>
+      </div>
+      <br />
+      <br />
+      <events />
+    </layout-full-page-submenu>
   </div>
 </template>
 <script>
@@ -46,6 +52,8 @@ import ProfileBox from '@/components/ProfileBox.vue'
 import Submenu from '@/components/Submenu'
 import CommunityListEvents from '@/components/CommunitiesListCard/CommunityListEvents'
 import Group from '@/components/Groups/Index.vue'
+import LayoutFullPageSubmenu from '../components/layouts/LayoutFullPageSubmenu.vue'
+import Events from '../components/Events.vue'
 
 export default {
   name: 'Dashboard',
@@ -54,7 +62,9 @@ export default {
     ProfileBox,
     Submenu,
     CommunityListEvents,
-    Group
+    Group,
+    LayoutFullPageSubmenu,
+    Events
   },
   data () {
     return {
