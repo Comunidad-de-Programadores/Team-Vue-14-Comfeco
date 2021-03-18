@@ -21,8 +21,8 @@
           {{ group.description }}
         </p>
         <div class="buttons">
-          <b-button :type="typeGroup" expanded>
-            Unirse
+          <b-button :type="typeGroup" expanded @click="eventButton = !eventButton">
+            {{ !eventButton ? 'Unirse' : 'Dejar grupo' }}
           </b-button>
         </div>
       </div>
@@ -40,7 +40,8 @@ export default {
   },
   data() {
     return {
-      typeGroup: ''
+      typeGroup: '',
+      eventButton: false
     }
   },
   mounted() {

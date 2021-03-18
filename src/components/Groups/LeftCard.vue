@@ -38,7 +38,7 @@
 <script>
 export default {
   name: 'LeftCard'
-}
+} 
 </script>
 <style scoped>
 .-img-perfil-left-card {
