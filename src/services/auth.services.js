@@ -37,6 +37,9 @@ class AuthService extends ApiService {
   getProfile() {
     return this.http.get('api/user/me/')
   }
+  updateProfile(data) {
+    return this.http.put('api/user/me/', data)
+  }
 }
 
 const instance = new AuthService()

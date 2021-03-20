@@ -2,7 +2,7 @@
   <article class="card mt-5">
     <div class="card-content">
       <div class="header">
-        <a href="#">Editar perfil</a>
+        <router-link :to="{name: 'EditProfile'}">Editar perfil</router-link>
       </div>
       <div class="image">
         <img
