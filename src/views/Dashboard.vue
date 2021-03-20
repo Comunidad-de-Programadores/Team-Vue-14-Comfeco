@@ -3,7 +3,6 @@
     <layout>
       <template v-slot:left-sidebar>
         <communities-list-card />
-        <profile-card />
       </template>
       <community />
       <sponsor-views />
@@ -27,7 +26,6 @@ import Community from '@/components/Community/index'
 import SponsorViews from '@/components/Sponsor.vue'
 import Counter from '@/components/Counter';
 import CommunitiesListCard from '@/components/CommunitiesListCard'
-import ProfileCard from '@/components/ProfileCard'
 import WorkshopsListCard from '@/components/WorkshopsListCard'
 
 export default {
@@ -38,7 +36,6 @@ export default {
     SponsorViews,
     Counter,
     CommunitiesListCard,
-    ProfileCard,
     WorkshopsListCard,
   }
 }

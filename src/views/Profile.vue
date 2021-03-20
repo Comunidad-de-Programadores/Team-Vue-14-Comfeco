@@ -6,7 +6,7 @@
         <submenu :active.sync="active" />
       </template>
       <template v-slot:left-sidebar>
-        <p>Lado izquierdo</p>
+        <profile-card />
       </template>
       <profile-box />
       <template v-slot:right-sidebar>
@@ -50,8 +50,12 @@
 import Layout from '@/components/layouts/LayoutDefaultProfile'
 import ProfileBox from '@/components/ProfileBox.vue'
 import Submenu from '@/components/Submenu'
+<<<<<<< HEAD
 import CommunityListEvents from '@/components/CommunitiesListCard/CommunityListEvents'
 import Group from '@/components/Groups/Index.vue'
+=======
+import ProfileCard from '@/components/ProfileCard'
+>>>>>>> development
 import LayoutFullPageSubmenu from '../components/layouts/LayoutFullPageSubmenu.vue'
 import Events from '../components/Events.vue'
 
@@ -61,8 +65,12 @@ export default {
     Layout,
     ProfileBox,
     Submenu,
+<<<<<<< HEAD
     CommunityListEvents,
     Group,
+=======
+    ProfileCard,
+>>>>>>> development
     LayoutFullPageSubmenu,
     Events
   },
