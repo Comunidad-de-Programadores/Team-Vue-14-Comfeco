@@ -40,21 +40,9 @@
                     !$v.user.birth_day.required && $v.user.birth_day.$error
                 }
               ]">
-              <b-datepicker :focused-date="date"
-                :first-day-of-week="1">
-                <b-field>
-                    <b-autocomplete
-                        open-on-focus
-                        readonly
-                        v-model="month"
-                        :data="months"
-                        field="name"
-                        @select="selectMonth">
-                    </b-autocomplete>
-                    <p class="control">
-                        <span class="button is-static">{{ date.getFullYear() }}</span>
-                    </p>
-                </b-field>
+              <b-datepicker @input="changeDate"
+                :first-day-of-week="1" locale="es-ES">
+               
               </b-datepicker>
             </b-field>
           </div>
@@ -136,15 +124,15 @@
         </div>
         <div class="columns">
           <div class="column is-full">
-            <b-field label="Linkedin">
-              <b-input v-model="user.linkedin" :custom-class="$v.user.linkedin.$error ? 'has-text-danger' : ''"
+            <b-field label="Linkedin" :custom-class="$v.user.linkedin.$error ? 'has-text-danger' : ''"
               :type="{ 'is-danger': $v.user.linkedin.$error }"
               :message="[
                 {
                   'Campo requerido':
                     !$v.user.linkedin.required && $v.user.linkedin.$error
                 }
-              ]"></b-input>
+              ]">
+              <b-input v-model="user.linkedin" ></b-input>
             </b-field>
           </div>
         </div>
@@ -197,7 +185,7 @@ export default {
   data() {
     return {
       date: new Date(),
-      month: null,
+      month: "",
       months: [
         { name: 'January', value: 0 },
         { name: 'February', value: 1 },
@@ -274,6 +262,7 @@ export default {
   },
   methods: {
     selectMonth(option) {
+      console.log(option, 'ipt')
       if (option) {
         this.date = new Date(this.date)
         this.date.setMonth(option.value)
@@ -301,12 +290,20 @@ export default {
         }
       }
       
+    },
+    changeDate(date) {
+      console.log(date)
     }
   },
   mounted() {
     this.month = this.months.filter(
       item => item.value == this.date.getMonth()
     )[0].name
+  },
+  watch: {
+    month (oldValue, newValue) {
+      console.log(oldValue, newValue)
+    }
   }
 }
 </script>
