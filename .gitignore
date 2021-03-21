@@ -40,3 +40,6 @@ amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
+temp_auto_push.bat
+temp_interactive_push.bat
+branch_structure.json
